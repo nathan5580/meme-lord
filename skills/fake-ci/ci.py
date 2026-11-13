@@ -11,6 +11,7 @@ import random
 import signal
 import sys
 import time
+from datetime import datetime, timedelta
 
 SKIP_DIRS = {".git", "node_modules", "build", "out", "DerivedData", "dist", "troll-out"}
 TEST_HINTS = ("test_", "_test.", ".test.", ".spec.", "/tests/", "/Tests/")
@@ -69,7 +70,7 @@ def failure_line(test):
 
 def actions(args, test, run_id, sha):
     job = args.job or "test (ubuntu-latest)"
-    stamp = "2026-11-13T10:14:"
+    stamp = (datetime.now() - timedelta(minutes=8)).strftime("%Y-%m-%dT%H:%M:")
     lines = [
         f"$ gh run view {run_id} --log-failed",
         f"{job}\tSet up job\t{stamp}02.004Z Current runner version: '2.320.0'",

@@ -57,8 +57,8 @@ def headers(args, rng):
 
 
 def status(args, rng):
-    start = datetime(2026, 11, 13, 14, 2)
     minutes = max(2, args.minutes)
+    start = datetime.now().replace(second=0, microsecond=0) - timedelta(minutes=minutes)
     lines = [
         f"$ curl -s https://status.{args.service}/summary",
         f"{args.service} — {args.region}",
