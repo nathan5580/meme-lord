@@ -1,4 +1,4 @@
-# Troll Library
+# Meme Lord
 
 Eight prank skills plus the safety floor that makes them safe to run. Install instructions live in [README.md](README.md); the normative contract is [skills/troll-protocol/SKILL.md](skills/troll-protocol/SKILL.md).
 

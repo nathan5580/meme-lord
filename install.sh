@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Install the Troll Library skills into one or more harness skill directories.
+# Install the Meme Lord skills into one or more harness skill directories.
 set -euo pipefail
 
 src="$(cd "$(dirname "$0")" && pwd)/skills"

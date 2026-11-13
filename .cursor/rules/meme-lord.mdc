@@ -4,7 +4,7 @@ globs:
 alwaysApply: false
 ---
 
-# Troll Library contract
+# Meme Lord contract
 
 Applies to any prank the agent runs. Copies the floor from `skills/troll-protocol/SKILL.md`; that file is normative.
 

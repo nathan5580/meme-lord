@@ -1,8 +1,8 @@
-# Troll Library
+# Meme Lord
 
-[![test](https://github.com/nathan5580/troll-library/actions/workflows/test.yml/badge.svg)](https://github.com/nathan5580/troll-library/actions/workflows/test.yml)
+[![test](https://github.com/nathan5580/meme-lord/actions/workflows/test.yml/badge.svg)](https://github.com/nathan5580/meme-lord/actions/workflows/test.yml)
 [![license: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
-[![release](https://img.shields.io/github/v/release/nathan5580/troll-library)](https://github.com/nathan5580/troll-library/releases)
+[![release](https://img.shields.io/github/v/release/nathan5580/meme-lord)](https://github.com/nathan5580/meme-lord/releases)
 
 Nine agent skills for harmless social pranks: the "I deleted everything" bit, generated meme cards, ASCII banners, evidence-based roasts, rickrolls, fake macOS notifications, fabricated incidents, and corporate passive-aggression.
 
@@ -13,14 +13,14 @@ Works wherever an agent can read files and run `python3`: **OMP**, **Claude Code
 ## Install
 
 ```bash
-git clone https://github.com/nathan5580/troll-library.git && cd troll-library
+git clone https://github.com/nathan5580/meme-lord.git && cd meme-lord
 bash install.sh        # every harness skill dir found on this machine
 ```
 
 | Harness | Install |
 |---|---|
-| OMP | `omp plugin marketplace add nathan5580/troll-library` → `omp plugin install troll-library@troll-library` |
-| Claude Code | `/plugin marketplace add nathan5580/troll-library` → `/plugin install troll-library@troll-library` |
+| OMP | `omp plugin marketplace add nathan5580/meme-lord` → `omp plugin install troll-library@troll-library` |
+| Claude Code | `/plugin marketplace add nathan5580/meme-lord` → `/plugin install troll-library@troll-library` |
 | Any harness with a skills dir | `bash install.sh --target ~/.claude/skills` (repeatable, `--copy` for real copies) |
 | Cursor, Copilot, Gemini CLI, other agents | point them at `AGENTS.md`, or copy `skills/` into their skills directory |
 | Anything else | read `skills/troll-protocol/SKILL.md`, then the skill you want |
