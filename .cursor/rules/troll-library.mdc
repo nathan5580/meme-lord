@@ -21,6 +21,7 @@ Applies to any prank the agent runs. Copies the floor from `skills/troll-protoco
 |---|---|---|
 | `fake-delete` | `python3 panic.py --scenario {deleted,force-pushed,dropped-db}` | terminal transcript |
 | `meme-smith` | `python3 memegen.py --style {classic,tweet,terminal,chat}` | PNG |
+| `ascii-troll` | `python3 ascii.py --mode {banner,cow,art}` | text |
 | `rickroll` | `python3 rickroll.py --mode {link,progress}` | text |
 | `fake-alert` | `python3 alert.py --preset {disk,backup,update,meeting}` | macOS notification |
 | `brutal-roast` | read-only git/rg facts, then roast | text |

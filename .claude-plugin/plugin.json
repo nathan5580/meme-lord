@@ -1,7 +1,7 @@
 {
   "name": "troll-library",
-  "version": "1.2.0",
-  "description": "Harmless social-prank skills: fake deletes, meme cards, evidence-based roasts, rickrolls, fake macOS alerts and corporate speak. Every bit self-reveals.",
+  "version": "1.3.0",
+  "description": "Harmless social-prank skills: fake deletes, meme cards, ASCII banners, roasts, rickrolls, fake macOS alerts and corporate speak. Every bit self-reveals.",
   "author": {
     "name": "Nathan",
     "url": "https://github.com/nathan5580"
@@ -13,6 +13,7 @@
     "prank",
     "skills",
     "memes",
+    "ascii",
     "rickroll",
     "humour",
     "agents"
@@ -21,6 +22,7 @@
     "./skills/troll-protocol",
     "./skills/fake-delete",
     "./skills/meme-smith",
+    "./skills/ascii-troll",
     "./skills/brutal-roast",
     "./skills/rickroll",
     "./skills/fake-alert",

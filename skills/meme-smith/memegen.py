@@ -101,20 +101,28 @@ def render_classic(args):
         return 2
 
     width, height = img.size
-    size = max(28, width // 12)
-    fnt = font("impact", size)
-    draw = ImageDraw.Draw(img)
-    line_height = int(size * 1.1)
     max_width = width - 80
+    size = max(28, width // 12)
+    while size > 16:
+        fnt = font("impact", size)
+        lines = wrap(args.top.upper(), fnt, max_width) + wrap(args.bottom.upper(), fnt, max_width)
+        if len(lines) * int(size * 1.1) <= height * 0.5:
+            break
+        size -= 2
+
+    fnt = font("impact", size)
+    line_height = int(size * 1.1)
+    top_lines = wrap(args.top.upper(), fnt, max_width)
+    bottom_lines = wrap(args.bottom.upper(), fnt, max_width)
+    draw = ImageDraw.Draw(img)
 
     y = 24
-    for line in wrap(args.top.upper(), fnt, max_width):
+    for line in top_lines:
         draw.text((width / 2, y), line, font=fnt, fill="white", stroke_width=4, stroke_fill="black", anchor="mt")
         y += line_height
 
-    bottom = wrap(args.bottom.upper(), fnt, max_width)
-    y = height - 24 - line_height * len(bottom)
-    for line in bottom:
+    y = height - 24 - line_height * len(bottom_lines)
+    for line in bottom_lines:
         draw.text((width / 2, y), line, font=fnt, fill="white", stroke_width=4, stroke_fill="black", anchor="mt")
         y += line_height
 

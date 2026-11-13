@@ -18,6 +18,7 @@ Eight prank skills plus the safety floor that makes them safe to run. Install in
 | `troll-protocol` | read before any prank | rules |
 | `fake-delete` | "I deleted everything", force-push or dropped-DB bit | terminal transcript |
 | `meme-smith` | a meme, fake tweet, terminal card or chat bubble would land | PNG |
+| `ascii-troll` | text-only joke: banner, cow, terminal art | text |
 | `brutal-roast` | user asks to be roasted | text |
 | `rickroll` | rickroll or hidden gag link | text |
 | `fake-alert` | fake macOS notification bit | notification |

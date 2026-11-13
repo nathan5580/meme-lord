@@ -42,12 +42,20 @@ def send(script_line, dry_run):
 
 def main(argv=None):
     parser = argparse.ArgumentParser(description="Fake macOS notification with a reveal.")
-    parser.add_argument("--preset", required=True, choices=sorted(PRESETS))
+    parser.add_argument("--preset", choices=sorted(PRESETS))
+    parser.add_argument("--title")
+    parser.add_argument("--body")
     parser.add_argument("--delay", type=float, default=6.0)
     parser.add_argument("--dry-run", action="store_true")
     args = parser.parse_args(argv)
 
-    title, body = PRESETS[args.preset]
+    if args.preset:
+        title, body = PRESETS[args.preset]
+        title, body = args.title or title, args.body or body
+    elif args.title and args.body:
+        title, body = args.title, args.body
+    else:
+        parser.error("--preset, or both --title and --body")
     fake = script(title, body, "Basso")
     real = script(*REVEAL)
 

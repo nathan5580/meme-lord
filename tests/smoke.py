@@ -85,6 +85,17 @@ def meme_cases(tmp):
         assert result.returncode == 0, result.stderr
         assert Image.open(out).size == (400, 400), "classic changed the source size"
 
+    def classic_long_caption():
+        source = tmp / "base.png"
+        out = tmp / "classic-long.png"
+        top = "one does not simply write a caption far too long for a tiny image and expect it to fit"
+        result = script("skills/meme-smith/memegen.py", "--style", "classic", "--image", str(source), "--top", top, "--bottom", "and yet here we are", "--out", str(out))
+        assert result.returncode == 0, result.stderr
+        img = Image.open(out).convert("RGB")
+        assert img.size == (400, 400), img.size
+        white = sum(count for count, color in img.getcolors(maxcolors=1_000_000) if sum(color) > 700)
+        assert white > 2000, f"caption barely rendered ({white} light pixels)"
+
     def missing_image():
         result = script("skills/meme-smith/memegen.py", "--style", "classic")
         assert result.returncode == 2 and "--image" in result.stderr, result.stderr
@@ -93,6 +104,7 @@ def meme_cases(tmp):
     check("meme terminal", lambda: card("terminal", "--text", "$ npm test\n42 failing"))
     check("meme chat", lambda: card("chat", "--side", "right", "--text", "did you push the force push"))
     check("meme classic", classic)
+    check("meme classic long caption", classic_long_caption)
     check("meme missing image", missing_image)
 
 
@@ -120,7 +132,55 @@ def alert_cases():
             assert result.stdout.count("display notification") == 2, result.stdout
             assert "Nothing happened" in result.stdout, result.stdout
 
+    def custom():
+        result = script("skills/fake-alert/alert.py", "--title", "iCloud", "--body", "Storage sync paused.", "--dry-run")
+        assert result.returncode == 0, result.stderr
+        assert 'title "iCloud"' in result.stdout, result.stdout
+        assert result.stdout.count("display notification") == 2, result.stdout
+
+    def missing_text():
+        result = script("skills/fake-alert/alert.py", "--dry-run")
+        assert result.returncode == 2 and "--preset" in result.stderr, result.stderr
+
     check("alert dry-run presets", presets)
+    check("alert custom text", custom)
+    check("alert missing preset", missing_text)
+
+
+def ascii_cases():
+    def banner():
+        result = script("skills/ascii-troll/ascii.py", "--mode", "banner", "--text", "TROLLED")
+        assert result.returncode == 0, result.stderr
+        rows = result.stdout.rstrip("\n").split("\n")
+        assert len(rows) == 5, rows
+        assert all("#" in row for row in rows), rows
+        assert rows[0].split(" ")[0] == "####", "T glyph wrong: " + rows[0]
+
+    def unknown_char():
+        result = script("skills/ascii-troll/ascii.py", "--mode", "banner", "--text", "a~b")
+        assert result.returncode == 0, result.stderr
+        assert "###." in result.stdout, result.stdout
+
+    def cow():
+        result = script("skills/ascii-troll/ascii.py", "--mode", "cow", "--text", "read the migration docs")
+        assert result.returncode == 0, result.stderr
+        assert "read the migration docs" in result.stdout, result.stdout
+        assert "(oo)" in result.stdout, result.stdout
+
+    def art():
+        result = script("skills/ascii-troll/ascii.py", "--mode", "art", "--name", "skull")
+        assert result.returncode == 0, result.stderr
+        assert "() ()" in result.stdout, result.stdout
+
+    def bad_art():
+        result = script("skills/ascii-troll/ascii.py", "--mode", "art", "--name", "nope")
+        assert result.returncode == 2, result.returncode
+
+    check("ascii banner", banner)
+    check("ascii unknown char", unknown_char)
+    check("ascii cow", cow)
+    check("ascii art", art)
+    check("ascii bad art name", bad_art)
 
 
 def install_cases(tmp):
@@ -136,7 +196,8 @@ def install_cases(tmp):
 
         install()
         entries = sorted(p.name for p in target.iterdir())
-        assert len(entries) == 9, entries
+        expected = len([p for p in (ROOT / "skills").iterdir() if p.is_dir()]) + 1
+        assert len(entries) == expected, entries
         assert all((target / name).is_symlink() for name in entries if name != "authored-skill"), entries
 
         install("--copy")
@@ -158,6 +219,7 @@ def main():
         install_cases(tmp)
     rickroll_cases()
     alert_cases()
+    ascii_cases()
     if failures:
         print(f"\n{len(failures)} failed: {', '.join(failures)}")
         return 1
