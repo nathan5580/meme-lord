@@ -26,6 +26,29 @@ Uninstall: `bash install.sh --uninstall` removes only what this repo installed, 
 
 Requirements: `python3` 3.10+. `meme-smith` also needs Pillow (`pip install pillow`). `fake-alert` is macOS-only and degrades to printed text elsewhere.
 
+## Demo
+
+Output from `meme-smith` — nothing here is a screenshot of a real service:
+
+![fake tweet card](docs/demo-tweet.png)
+
+![fake terminal card](docs/demo-terminal.png)
+
+![chat bubble card](docs/demo-chat.png)
+
+And the headline bit, `fake-delete`:
+
+```text
+$ rm -vrf /Users/you/project/*
+removed 'README.md'
+removed 'install.sh'
+removed 'skills/fake-delete/panic.py'
+removed 'tests/smoke.py'
+rm: 41.2 KiB removed
+
+🧌 PRANK — nothing was deleted / force-pushed / dropped. 4 files checked, nothing on this machine changed.
+```
+
 ## Skills
 
 | Skill | What it does | Artifact |

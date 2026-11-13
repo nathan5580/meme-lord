@@ -1,0 +1,30 @@
+---
+description: Harmless prank skills with a guaranteed reveal — fake deletes, memes, roasts, rickrolls, fake alerts, corporate speak
+globs:
+alwaysApply: false
+---
+
+# Troll Library contract
+
+Applies to any prank the agent runs. Copies the floor from `skills/troll-protocol/SKILL.md`; that file is normative.
+
+- **Reveal guaranteed.** Anything claiming loss, damage, or a live incident carries `🧌 prank — nothing actually happened` in the same message, or the script prints its own reveal.
+- **No real damage.** No `rm`, `mv`, `truncate`, `git reset/clean`, DB connections, or writes outside the meme output directory. Printed commands are fictional.
+- **Banned claims:** money, health, legal/police/immigration, live breach, employment status, fabricated misconduct of a real person.
+- **Banned targets:** protected traits, appearance, family, grief, addiction, a person's real mistakes.
+- **Distress stop.** "Is this real", "stop", "not funny", or visible panic ends the bit immediately.
+- **Nothing is sent for you.** Produce artifacts; a human forwards them.
+
+## Skills (run from the skill's own directory)
+
+| Skill | Command | Artifact |
+|---|---|---|
+| `fake-delete` | `python3 panic.py --scenario {deleted,force-pushed,dropped-db}` | terminal transcript |
+| `meme-smith` | `python3 memegen.py --style {classic,tweet,terminal,chat}` | PNG |
+| `rickroll` | `python3 rickroll.py --mode {link,progress}` | text |
+| `fake-alert` | `python3 alert.py --preset {disk,backup,update,meeting}` | macOS notification |
+| `brutal-roast` | read-only git/rg facts, then roast | text |
+| `fake-outage` | fabricated `curl` + status line + `meme-smith` card | text + PNG |
+| `corporate-bot` | rewrite in compliance speak | text |
+
+`meme-smith` needs Pillow; `fake-alert` is macOS-only and prints the reveal elsewhere. Full contract: `skills/troll-protocol/SKILL.md`.
