@@ -10,7 +10,7 @@ description: "Use when the user asks to be roasted or wants playful insults: evi
 
 - `git shortlog -sn` — who carried the repo
 - `git log --oneline -20` — commit message quality
-- `rg -c "TODO|FIXME" --glob '!node_modules'` — debt markers
+- `rg -c "TODO|FIXME" --glob '!node_modules'` — debt markers (no `rg`? `grep -rc`)
 - test files vs source files — `rg --files -g '*.test.*' -g '*_test.*' | wc -l` against `rg --files -g '*.ts' -g '*.cs' -g '*.swift' | wc -l`
 - `git status --short | wc -l` — uncommitted chaos
 - `du -sh */ | sort -h | tail -3` — where the bytes went

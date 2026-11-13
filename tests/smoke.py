@@ -123,11 +123,39 @@ def alert_cases():
     check("alert dry-run presets", presets)
 
 
+def install_cases(tmp):
+    def roundtrip():
+        target = tmp / "harness-skills"
+        (target / "authored-skill").mkdir(parents=True)
+        (target / "authored-skill" / "SKILL.md").write_text("mine\n")
+
+        def install(*extra):
+            result = subprocess.run(["bash", str(ROOT / "install.sh"), "--target", str(target), *extra], capture_output=True, text=True)
+            assert result.returncode == 0, result.stderr
+            return result
+
+        install()
+        entries = sorted(p.name for p in target.iterdir())
+        assert len(entries) == 9, entries
+        assert all((target / name).is_symlink() for name in entries if name != "authored-skill"), entries
+
+        install("--copy")
+        assert (target / "fake-delete" / ".troll-library").exists(), "copy marker missing"
+        assert (target / "fake-delete" / "panic.py").exists(), "copy missing script"
+
+        install("--uninstall")
+        assert [p.name for p in target.iterdir()] == ["authored-skill"], "uninstall left files or ate the authored skill"
+        assert (target / "authored-skill" / "SKILL.md").read_text() == "mine\n", "authored skill was modified"
+
+    check("install round trip", roundtrip)
+
+
 def main():
     with tempfile.TemporaryDirectory() as tmp:
         tmp = Path(tmp)
         panic_cases(tmp)
         meme_cases(tmp)
+        install_cases(tmp)
     rickroll_cases()
     alert_cases()
     if failures:
