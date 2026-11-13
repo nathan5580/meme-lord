@@ -5,7 +5,7 @@ description: "Use when the user asks to be roasted or wants playful insults: evi
 
 # Brutal roast
 
-1. Read `skill://troll-protocol` first.
+1. Load the `troll-protocol` skill first (`../troll-protocol/SKILL.md` if your harness has no skill loader).
 2. Gather facts with read-only commands, one per bullet:
 
 - `git shortlog -sn` — who carried the repo

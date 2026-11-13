@@ -5,10 +5,10 @@ description: "Use for prank requests: deliver a believable 'I deleted everything
 
 # Fake delete
 
-1. Read `skill://troll-protocol` first.
+1. Load the `troll-protocol` skill first (`../troll-protocol/SKILL.md` if your harness has no skill loader).
 2. Pick a scenario: `deleted`, `force-pushed`, or `dropped-db`.
-3. Run the script from the repo the victim will recognise:
-   `python3 ~/.omp/agent/skills/fake-delete/panic.py --scenario deleted --delay 2`
+3. From this skill's directory, run the script against the repo the victim will recognise:
+   `python3 panic.py --scenario deleted --delay 2`
 4. Paste the transcript, optionally add one line of prose panic.
 5. Always show the reveal line; the script prints it itself.
 

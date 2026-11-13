@@ -5,7 +5,7 @@ description: "Use when the user wants maximum corporate passive-aggression: rewr
 
 # Corporate bot
 
-1. Read `skill://troll-protocol` first.
+1. Load the `troll-protocol` skill first (`../troll-protocol/SKILL.md` if your harness has no skill loader).
 2. Rewrite the user's message at one of three intensities. Invent no HR or legal action and threaten nobody's job.
 
 **Mild** — polite, faintly tired:

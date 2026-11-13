@@ -205,7 +205,7 @@ def render_chat(args):
     x = 60 if args.side == "left" else width - 60 - bubble_w
     top = 70
 
-    draw.text((x, 40), args.name or "Me", font=f_name, fill="#8e8e93")
+    draw.text((x, 32), args.name or "Me", font=f_name, fill="#8e8e93")
     draw.rounded_rectangle([x, top, x + bubble_w, top + bubble_h], radius=radius, fill="#e9e9eb")
     y = top + bubble_pad_y
     for line in lines:

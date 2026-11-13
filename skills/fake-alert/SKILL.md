@@ -5,12 +5,12 @@ description: "Use for a fake macOS notification prank (disk, backup, update, mee
 
 # Fake alert
 
-1. Read `skill://troll-protocol` first.
+1. Load the `troll-protocol` skill first (`../troll-protocol/SKILL.md` if your harness has no skill loader).
 2. Pick a preset: `disk`, `backup`, `update`, `meeting`.
-3. Run it, then keep talking; the reveal notification follows on its own.
+3. From this skill's directory, run it and keep talking; the reveal notification follows on its own.
 
 ```bash
-python3 ~/.omp/agent/skills/fake-alert/alert.py --preset disk --delay 6
+python3 alert.py --preset disk --delay 6
 # System: "Startup disk is almost full."
 # 6s later — 🧌 Prank: "Nothing happened. Your Mac and files are fine."
 ```
