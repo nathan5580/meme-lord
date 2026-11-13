@@ -5,12 +5,12 @@
     "name": "Nathan",
     "url": "https://github.com/nathan5580"
   },
-  "description": "Harmless prank skills for coding agents: fake deletes, memes, ASCII banners, roasts, rickrolls, fake alerts, corporate speak. Guaranteed reveal, zero real damage.",
+  "description": "Harmless prank skills for coding agents: catastrophes, fake CI and ops logs, fake harness telemetry, meme cards, ASCII art, roasts, rickrolls, fake alerts, corporate speak. Guaranteed reveal, zero real damage.",
   "plugins": [
     {
       "name": "troll-library",
       "source": "./",
-      "description": "Nine prank skills that never touch your files, all behind a reveal contract.",
+      "description": "Twelve prank skills that never touch your files, all behind a reveal contract.",
       "category": "fun",
       "keywords": [
         "prank",

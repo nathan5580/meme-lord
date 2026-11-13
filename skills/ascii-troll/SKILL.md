@@ -19,8 +19,9 @@ python3 ascii.py --mode cow --text "should have read the migration docs"
 # static art
 python3 ascii.py --mode art --name shrug
 python3 ascii.py --mode art --name skull
+python3 ascii.py --mode art --name duck
 ```
 
-Art names: `shrug`, `tableflip`, `unflip`, `skull`, `thumbs`, `fine`, `troll`. Banner supports A–Z, 0–9 and `! ? . , - : ' *`.
+Art names: `shrug`, `tableflip`, `unflip`, `skull`, `thumbs`, `fine`, `troll`, `duck`, `rocket`, `bug`, `coffee`. Banner supports A–Z, 0–9 and `! ? . , - : ' *`.
 
 Rewriting a real terminal line? Keep the jokey line out of CI logs and incident channels — plain text travels further than a PNG.

@@ -1,6 +1,6 @@
 # Meme Lord
 
-Eight prank skills plus the safety floor that makes them safe to run. Install instructions live in [README.md](README.md); the normative contract is [skills/troll-protocol/SKILL.md](skills/troll-protocol/SKILL.md).
+Eleven prank skills plus the safety floor that makes them safe to run. Install instructions live in [README.md](README.md); the normative contract is [skills/troll-protocol/SKILL.md](skills/troll-protocol/SKILL.md).
 
 ## Contract
 
@@ -16,9 +16,12 @@ Eight prank skills plus the safety floor that makes them safe to run. Install in
 | Skill | Trigger | Artifact |
 |---|---|---|
 | `troll-protocol` | read before any prank | rules |
-| `fake-delete` | "I deleted everything", force-push or dropped-DB bit | terminal transcript |
-| `meme-smith` | a meme, fake tweet, terminal card or chat bubble would land | PNG |
-| `ascii-troll` | text-only joke: banner, cow, terminal art | text |
+| `fake-delete` | "I deleted everything", force-push, dropped DB, startup crash, terraform destroy, corrupted config | terminal transcript |
+| `fake-ci` | fake failing pipeline: Actions, Jenkins or GitLab | text |
+| `fake-ops` | stuck deploy, benchmark regression, broken docker build | text |
+| `fake-harness` | agent-native: context pressure, token burn, model downgrade, tool loop | text |
+| `meme-smith` | a meme, tweet, terminal card, chat bubble, GitHub review/issue, achievement toast, Slack message or failed CI card would land | PNG |
+| `ascii-troll` | text-only joke: banner, cow, 11 art pieces | text |
 | `brutal-roast` | user asks to be roasted | text |
 | `rickroll` | rickroll or hidden gag link | text |
 | `fake-alert` | fake macOS notification bit | notification |
