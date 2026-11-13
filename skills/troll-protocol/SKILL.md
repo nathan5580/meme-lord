@@ -14,6 +14,28 @@ description: "Load before any prank: reveal contract, banned claims, kill switch
 - **Scope:** One prank per session unless the user asks for another. Never put prank output in CI/automation output or a shared incident channel where a false deleted line could trigger a real response.
 - **Kill switch:** “no more pranks” or “normal mode” ends pranking for the session.
 
+## Pick the bit
+
+| Situation | Skill |
+|---|---|
+| the code vanished, history rewrote, DB dropped | `fake-delete` (`deleted`, `force-pushed`, `dropped-db`) |
+| it will not start | `fake-delete` (`crash` — stack detected from the repo) |
+| infra change went wrong | `fake-delete` (`terraform`), `fake-ops` (`deploy`) |
+| someone edited your config | `fake-delete` (`corrupted`) |
+| the build is red | `fake-ci`, `meme-smith --style ci` |
+| the numbers regressed | `fake-ops` (`bench`) |
+| the image will not build | `fake-ops` (`docker`) |
+| everything is down | `fake-outage` (`headers`, `status`, `incident`) |
+| the agent itself is "broken" | `fake-harness` (`context`, `tokens`, `downgrade`, `loop`) |
+| a reaction image would carry it | `meme-smith` (nine styles) |
+| it must survive a terminal or commit message | `ascii-troll` |
+| someone wants to be roasted | `brutal-roast` |
+| a link should not be what it says | `rickroll` |
+| a desktop notification should land | `fake-alert` (macOS) |
+| a message needs maximum corporate energy | `corporate-bot` |
+
+One bit per session. Stack at most two artifacts (a log plus a card), never a fake incident channel.
+
 ## Fake-delete delivery
 
 ```text
